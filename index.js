@@ -196,6 +196,14 @@ const create = (win, options) => {
 				label: 'Services',
 				role: 'services',
 				visible: process.platform === 'darwin' && (props.isEditable || hasText)
+			}),
+			selectAll: () => ({
+				id: 'selectAll',
+				label: 'Select A&ll',
+				click() {
+					const target = webContents(win);
+					target.selectAll();
+				}
 			})
 		};
 
@@ -250,6 +258,7 @@ const create = (win, options) => {
 			options.showSaveLinkAs && defaultActions.saveLinkAs(),
 			defaultActions.separator(),
 			shouldShowInspectElement && defaultActions.inspect(),
+			defaultActions.selectAll(),
 			options.showServices && defaultActions.services(),
 			defaultActions.separator()
 		];
