@@ -197,9 +197,9 @@ Note: Due to [a bug in the Electron implementation](https://github.com/electron/
 #### showSelectAll
 
 Type: `boolean`\
-Default: `true`
+Default: `false` for macOS and `true` for all other OSes
 
-Show the `Select All` option when right-clicking in a window.
+Force display/hide the `Select All` menu-item when right-clicking in a window.
 
 #### labels
 
