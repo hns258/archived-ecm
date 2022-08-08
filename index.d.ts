@@ -217,10 +217,9 @@ declare namespace contextMenu {
 		readonly showServices?: boolean;
 
 		/**
-		Show the `Select All` option when right-clicking in a window
+		Force display/hide the `Select All` menu-item when right-clicking in a window
 
-		@default
-		 true for non-macOS, otherwise false and needs to be force enabled if needed on macOS
+		@default false for macOS and true for all other OSes
 		*/
 		readonly showSelectAll?: boolean;
 
