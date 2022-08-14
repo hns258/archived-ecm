@@ -283,6 +283,33 @@ const create = (win, options) => {
 			}
 		}
 
+		function addSearchEngineItem (title, stringUrl) {
+			return {
+				id: `searchWith${title}`,
+				label: `&Search with ${title}`,
+				visible: hasText,
+				click() {
+					const url = new URL(stringUrl);
+					url.searchParams.set('q', props.selectionText);
+					console.debug(url.toString())
+					electron.shell.openExternal(url.toString());
+				}
+			};
+		}
+
+		const searchEngines = options.extraSearchEngines;
+		if (searchEngines !== undefined && searchEngines.length > 0) {
+			for (let i = 0; i < searchEngines.length; i++){
+				const searchEngine = searchEngines[i];
+				const newSearchWithItem = addSearchEngineItem(searchEngine.title, searchEngine.urlString);
+
+				const searchWithGoogleItem = menuTemplate.find(menuItem => menuItem.id === "searchWithGoogle");
+				const searchWithGoogleIndex = menuTemplate.indexOf(searchWithGoogleItem);
+
+				menuTemplate.splice(searchWithGoogleIndex + i + 1, 0, newSearchWithItem);
+			}
+		}
+
 		// Filter out leading/trailing separators
 		// TODO: https://github.com/electron/electron/issues/5869
 		menuTemplate = removeUnusedMenuItems(menuTemplate);

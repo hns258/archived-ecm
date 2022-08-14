@@ -36,6 +36,10 @@ contextMenu({
 		}
 	],
 	append: () => {},
+	extraSearchEngines: [
+		{title: "DuckDuckGo", urlString: "https://duckduckgo.com"},
+		{title: "Bing", urlString: "https://www.bing.com/search"},
+	],
 	showSelectAll: true,
 	showCopyImageAddress: true,
 	showSaveImageAs: true,

@@ -84,6 +84,28 @@ declare namespace contextMenu {
 		@default 'Services'
 		*/
 		readonly services?: string;
+
+		/**
+ 		Extra search engines to search with (instead of Google)
+
+ 		Provide `title` and `url` of search engines to add
+ 		TODO look into how we can enforce these properties in the objects
+ 		@example
+ 		```
+ 		extraSearchEngines: [
+ 			{
+ 				title: "DuckDuckGo",
+ 				urlString: "https://duckduckgo.com"
+ 			},
+ 			{
+ 				title: "Bing",
+ 				urlString: "https://www.bing.com/search"
+ 			},
+ 		]
+ 		```
+ 		@default {}
+		 */
+		readonly extraSearchEngines?
 	}
 
 	interface ActionOptions {
