@@ -26,6 +26,12 @@ declare namespace contextMenu {
 		readonly searchWithGoogle?: string;
 
 		/**
+ 		The placeholder `{searchEngine}` will be replaced by the `title` from `otherSearchEngine`.
+ 		@default 'Search with {searchEngine}'
+		 */
+		readonly searchWithOther?: string;
+
+		/**
 		@default 'Cut'
 		*/
 		readonly cut?: string;
@@ -84,28 +90,6 @@ declare namespace contextMenu {
 		@default 'Services'
 		*/
 		readonly services?: string;
-
-		/**
- 		Extra search engines to search with (instead of Google)
-
- 		Provide `title` and `url` of search engines to add
- 		TODO look into how we can enforce these properties in the objects
- 		@example
- 		```
- 		extraSearchEngines: [
- 			{
- 				title: "DuckDuckGo",
- 				urlString: "https://duckduckgo.com"
- 			},
- 			{
- 				title: "Bing",
- 				urlString: "https://www.bing.com/search"
- 			},
- 		]
- 		```
- 		@default {}
-		 */
-		readonly extraSearchEngines?
 	}
 
 	interface ActionOptions {
@@ -122,6 +106,7 @@ declare namespace contextMenu {
 		readonly learnSpelling: (options: ActionOptions) => MenuItemConstructorOptions;
 		readonly lookUpSelection: (options: ActionOptions) => MenuItemConstructorOptions;
 		readonly searchWithGoogle: (options: ActionOptions) => MenuItemConstructorOptions;
+		readonly searchWithOther: (options: ActionOptions) => MenuItemConstructorOptions;
 		readonly cut: (options: ActionOptions) => MenuItemConstructorOptions;
 		readonly copy: (options: ActionOptions) => MenuItemConstructorOptions;
 		readonly paste: (options: ActionOptions) => MenuItemConstructorOptions;
@@ -188,6 +173,25 @@ declare namespace contextMenu {
 		@default true
 		*/
 		readonly showSearchWithGoogle?: boolean;
+
+		/**
+ 		Add a `Search with {searchEngine}` menu item when right-clicking text.
+
+		This allows use of a search engine besides Google, e.g., Bing, DuckDuckGo, etc.
+		The {searchEngine} placeholder in the menu item will be replaced with `otherSearchEngine.title`
+
+ 		@param {Object} otherSearchEngine Search engine to use
+ 		@param {string} otherSearchEngine.title Title of search engine
+ 		@param {string} otherSearchEngine.url URL of search engine
+
+ 		@example
+ 		otherSearchEngine: { title: 'Bing', url: 'https://www.bing.com/search' }
+ 		@example
+ 		otherSearchEngine: { title: 'DuckDuckGo', url: 'https://duckduckgo.com/' }
+
+ 		@default {}
+		 */
+		readonly otherSearchEngine?: {};
 
 		/**
 		Show the `Select All` menu item when right-clicking in a window.

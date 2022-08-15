@@ -70,6 +70,16 @@ const create = (win, options) => {
 					electron.shell.openExternal(url.toString());
 				}
 			}),
+			searchWithOther: decorateMenuItem({
+				id: 'searchWithOther',
+				label: `&Search with ${options.otherSearchEngine.title}`,
+				visible: hasText,
+				click() {
+					const url = new URL(options.otherSearchEngine.url);
+					url.searchParams.set('q', props.selectionText);
+					electron.shell.openExternal(url.toString());
+				}
+			}),
 			cut: decorateMenuItem({
 				id: 'cut',
 				label: 'Cu&t',
@@ -208,6 +218,9 @@ const create = (win, options) => {
 
 		const shouldShowInspectElement = typeof options.showInspectElement === 'boolean' ? options.showInspectElement : isDev;
 		const shouldShowSelectAll = options.showSelectAll || (options.showSelectAll !== false && process.platform !== 'darwin');
+		const shouldShowSearchWithOther = typeof options.otherSearchEngine !== undefined
+			                                  && options.otherSearchEngine.title.trim().length > 0
+			                                  && options.otherSearchEngine.url.trim().length > 0;
 
 		function word(suggestion) {
 			return {
@@ -244,6 +257,7 @@ const create = (win, options) => {
 			options.showLookUpSelection !== false && defaultActions.lookUpSelection(),
 			defaultActions.separator(),
 			options.showSearchWithGoogle !== false && defaultActions.searchWithGoogle(),
+			shouldShowSearchWithOther && defaultActions.searchWithOther(),
 			defaultActions.separator(),
 			defaultActions.cut(),
 			defaultActions.copy(),
@@ -280,33 +294,6 @@ const create = (win, options) => {
 
 			if (Array.isArray(result)) {
 				menuTemplate.push(...result);
-			}
-		}
-
-		function addSearchEngineItem (title, stringUrl) {
-			return {
-				id: `searchWith${title}`,
-				label: `&Search with ${title}`,
-				visible: hasText,
-				click() {
-					const url = new URL(stringUrl);
-					url.searchParams.set('q', props.selectionText);
-					console.debug(url.toString())
-					electron.shell.openExternal(url.toString());
-				}
-			};
-		}
-
-		const searchEngines = options.extraSearchEngines;
-		if (searchEngines !== undefined && searchEngines.length > 0) {
-			for (let i = 0; i < searchEngines.length; i++){
-				const searchEngine = searchEngines[i];
-				const newSearchWithItem = addSearchEngineItem(searchEngine.title, searchEngine.urlString);
-
-				const searchWithGoogleItem = menuTemplate.find(menuItem => menuItem.id === "searchWithGoogle");
-				const searchWithGoogleIndex = menuTemplate.indexOf(searchWithGoogleItem);
-
-				menuTemplate.splice(searchWithGoogleIndex + i + 1, 0, newSearchWithItem);
 			}
 		}
 
