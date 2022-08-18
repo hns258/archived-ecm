@@ -36,9 +36,9 @@ contextMenu({
 		}
 	],
 	append: () => {},
-	// otherSearchEngine: {title: 'Bing', url:'https://www.bing.com/search'},
-	otherSearchEngine: {title: 'DuckDuckGo', url: 'https://duckduckgo.com/'},
-	// showCopyImageAddress: true,
+	// addOtherSearchEngine: {title: 'Bing', url:'https://www.bing.com/search?q=%s&PC=U316&FORM=CHROMN'},
+	addOtherSearchEngine: {title: 'DuckDuckGo', url: 'https://duckduckgo.com/?q=%s'},
+	showCopyImageAddress: true,
 	showSaveImageAs: true,
 	showInspectElement: false,
 	showSaveLinkAs: true
