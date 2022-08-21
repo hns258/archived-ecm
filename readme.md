@@ -149,7 +149,7 @@ Type: `object: {title: string; url: string}`\
 Default: `{}`
 
 Add a `Search with {searchEngine}` menu item when right-clicking text. 
-The `{searchEngine}` placeholder will be replaced by the `title` property of the `addSearchWithOther` option (`addSearchWithOther.title`).
+The `{searchEngine}` placeholder will be replaced by `title`.
 This allows use of a search engine besides Google (e.g., Bing and DuckDuckGo).
 
 Examples:

@@ -26,7 +26,7 @@ declare namespace contextMenu {
 		readonly searchWithGoogle?: string;
 
 		/**
-		The placeholder `{searchEngine}` will be replaced by the `title` property of the `addSearchWithOther` option (`addSearchWithOther.title`).
+		The placeholder `{searchEngine}` will be replaced by the `title` property of the `addSearchWithOther` option.
  		@default 'Search with {searchEngine}'
 		 */
 		readonly searchWithOther?: string;
@@ -194,7 +194,7 @@ declare namespace contextMenu {
 
 		/**
  		Add a `Search with {searchEngine}` menu item when right-clicking text.
-		The `{searchEngine}` placeholder will be replaced by the `title` property of the `addSearchWithOther` option (`addSearchWithOther.title`).
+		The `{searchEngine}` placeholder will be replaced by `title`.
 		This allows the use of a search engine besides Google (e.g., Bing and DuckDuckGo).
 
  		@property {string} addSearchWithOther.title Title of search engine
