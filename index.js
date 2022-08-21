@@ -38,6 +38,7 @@ const create = (win, options) => {
 		const hasText = props.selectionText.trim().length > 0;
 		const isLink = Boolean(props.linkURL);
 		const can = type => editFlags[`can${type}`] && hasText;
+		const addSearchWithOtherExists = typeof options.addSearchWithOther !== 'undefined' && 'title' in options.addSearchWithOther && 'url' in options.addSearchWithOther;
 
 		const defaultActions = {
 			separator: () => ({type: 'separator'}),
@@ -72,10 +73,10 @@ const create = (win, options) => {
 			}),
 			searchWithOther: decorateMenuItem({
 				id: 'searchWithOther',
-				label: `Search &with ${options.addSearchWithOther.title}`,
+				label: `Search &with ${addSearchWithOtherExists ? options.addSearchWithOther.title : ''}`,
 				visible: hasText,
 				click() {
-					const url = new URL(options.addSearchWithOther.url);
+					const url = new URL(addSearchWithOtherExists ? options.addSearchWithOther.url : '');
 					url.searchParams.set('q', props.selectionText);
 					electron.shell.openExternal(url.toString());
 				}
@@ -249,7 +250,7 @@ const create = (win, options) => {
 
 		const shouldShowInspectElement = typeof options.showInspectElement === 'boolean' ? options.showInspectElement : isDev;
 		const shouldShowSelectAll = options.showSelectAll || (options.showSelectAll !== false && process.platform !== 'darwin');
-		const shouldShowSearchWithOther = typeof options.addSearchWithOther !== undefined && options.addSearchWithOther.title.trim().length > 0 && options.addSearchWithOther.url.trim().length > 0;
+		const shouldShowSearchWithOther = addSearchWithOtherExists && options.addSearchWithOther.title.trim().length > 0 && options.addSearchWithOther.url.trim().length > 0;
 
 		function word(suggestion) {
 			return {
