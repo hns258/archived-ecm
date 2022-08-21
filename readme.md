@@ -155,18 +155,18 @@ This allows use of a search engine besides Google (e.g., Bing and DuckDuckGo). T
 Examples:
 ```js
 {
-    addSearchWithOther: {
-        title: 'Bing',
+	addSearchWithOther: {
+		title: 'Bing',
 		url: 'https://www.bing.com/search?q=%s'
-    }
+	}
 };
 ```
 ```js
 {
-    addSearchWithOther: {
-        title: 'DuckDuckGo',
+	addSearchWithOther: {
+		title: 'DuckDuckGo',
 		url: 'https://duckduckgo.com/?q=%s'
-    }
+	}
 };
 ```
 
