@@ -26,7 +26,7 @@ declare namespace contextMenu {
 		readonly searchWithGoogle?: string;
 
 		/**
- 		The placeholder `{searchEngine}` will be replaced by the `title` from `otherSearchEngine`.
+		The placeholder `{searchEngine}` will be replaced by the `title` of `showSearchWithOther`.
  		@default 'Search with {searchEngine}'
 		 */
 		readonly searchWithOther?: string;
@@ -176,22 +176,26 @@ declare namespace contextMenu {
 
 		/**
  		Add a `Search with {searchEngine}` menu item when right-clicking text.
+		This allows the use of a search engine besides Google (e.g., Bing and DuckDuckGo).
+		The placeholder `{searchEngine}` in the menu item will be replaced with `addSearchWithOther.title`
 
-		This allows use of a search engine besides Google, e.g., Bing, DuckDuckGo, etc.
-		The {searchEngine} placeholder in the menu item will be replaced with `otherSearchEngine.title`
-
- 		@param {Object} otherSearchEngine Search engine to use
- 		@param {string} otherSearchEngine.title Title of search engine
- 		@param {string} otherSearchEngine.url URL of search engine
+ 		@property {string} addSearchWithOther.title Title of search engine
+ 		@property {string} addSearchWithOther.url URL of search engine
 
  		@example
- 		otherSearchEngine: { title: 'Bing', url: 'https://www.bing.com/search' }
+		 ```
+		 {
+ 			addSearchWithOther: { title: 'Bing', url: 'https://www.bing.com/search?q=%s&PC=U316&FORM=CHROMN' }
+		 }
+		 ```
  		@example
- 		otherSearchEngine: { title: 'DuckDuckGo', url: 'https://duckduckgo.com/' }
-
- 		@default {}
-		 */
-		readonly otherSearchEngine?: {};
+ 		```
+		 {
+		 	addSearchWithOther: { title: 'DuckDuckGo', url: 'https://duckduckgo.com/?q=%s' }
+		 }
+		 ```
+		*/
+		readonly addSearchWithOther?: {};
 
 		/**
 		Show the `Select All` menu item when right-clicking in a window.

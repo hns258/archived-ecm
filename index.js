@@ -72,10 +72,10 @@ const create = (win, options) => {
 			}),
 			searchWithOther: decorateMenuItem({
 				id: 'searchWithOther',
-				label: `&Search with ${options.otherSearchEngine.title}`,
+				label: `&Search with ${options.addSearchWithOther.title}`,
 				visible: hasText,
 				click() {
-					const url = new URL(options.otherSearchEngine.url);
+					const url = new URL(options.addSearchWithOther.url);
 					url.searchParams.set('q', props.selectionText);
 					electron.shell.openExternal(url.toString());
 				}
