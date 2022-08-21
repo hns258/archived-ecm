@@ -145,19 +145,12 @@ Show the `Search with Google` menu item when right-clicking text.
 
 #### addSearchWithOther
 
-Type: `object`\
+Type: `object: {title: string; url: string}`\
 Default: `{}`
 
-Add and show a `Search with {searchEngine}` menu item when right-clicking text, where `{searchEngine}` is specified by the developer by providing its `title` and `URL`.
-
-The `{searchEngine}` placeholder in the menu item will be replaced by `addSearchWithOther.title`.
-This allows use of a search engine besides Google (e.g., Bing, and DuckDuckGo).
-
-Property: `{object}` searchEngine Search engine to use
-
-Property: `{string}` searchEngine.title Title of search engine
-
-Property: `{string}` searchEngine.url URL of search engine
+Add a `Search with {searchEngine}` menu item when right-clicking text. 
+The `{searchEngine}` placeholder will be replaced by the `title` property of the `addSearchWithOther` option (`addSearchWithOther.title`).
+This allows use of a search engine besides Google (e.g., Bing and DuckDuckGo).
 
 Examples:
 ```js
@@ -171,7 +164,7 @@ Examples:
 {
     addSearchWithOther: {
         title: 'DuckDuckGo',
-			url: 'https://duckduckgo.com/?q=%s'
+		url: 'https://duckduckgo.com/?q=%s'
     }
 };
 ```
@@ -311,6 +304,7 @@ The following options are ignored when `menu` is used:
 
 - `showLookUpSelection`
 - `showSearchWithGoogle`
+- `showSearchWithOther`
 - `showSelectAll`
 - `showCopyImage`
 - `showCopyImageAddress`
@@ -329,6 +323,7 @@ Default actions:
 - `separator`
 - `lookUpSelection`
 - `searchWithGoogle`
+- `searchWithOther`
 - `cut`
 - `copy`
 - `paste`

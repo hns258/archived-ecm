@@ -72,7 +72,7 @@ const create = (win, options) => {
 			}),
 			searchWithOther: decorateMenuItem({
 				id: 'searchWithOther',
-				label: `&Search with ${options.addSearchWithOther.title}`,
+				label: `Search &with ${options.addSearchWithOther.title}`,
 				visible: hasText,
 				click() {
 					const url = new URL(options.addSearchWithOther.url);
@@ -249,7 +249,7 @@ const create = (win, options) => {
 
 		const shouldShowInspectElement = typeof options.showInspectElement === 'boolean' ? options.showInspectElement : isDev;
 		const shouldShowSelectAll = options.showSelectAll || (options.showSelectAll !== false && process.platform !== 'darwin');
-		const shouldShowSearchWithOther = typeof options.otherSearchEngine !== undefined && options.otherSearchEngine.title.trim().length > 0 && options.otherSearchEngine.url.trim().length > 0;
+		const shouldShowSearchWithOther = typeof options.addSearchWithOther !== undefined && options.addSearchWithOther.title.trim().length > 0 && options.addSearchWithOther.url.trim().length > 0;
 
 		function word(suggestion) {
 			return {
