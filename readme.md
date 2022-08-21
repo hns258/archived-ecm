@@ -41,7 +41,7 @@ let mainWindow;
 Advanced example:
 
 ```js
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, shell} = require('electron');
 const contextMenu = require('electron-context-menu');
 
 contextMenu({
@@ -211,6 +211,27 @@ Default: `false`
 
 Show the `Save Image As…` menu item when right-clicking on an image.
 
+#### showCopyVideoAddress
+
+Type: `boolean`\
+Default: `false`
+
+Show the `Copy Video Address` menu item when right-clicking on a video.
+
+#### showSaveVideo
+
+Type: `boolean`\
+Default: `false`
+
+Show the `Save Video` menu item when right-clicking on a video.
+
+#### showSaveVideoAs
+
+Type: `boolean`\
+Default: `false`
+
+Show the `Save Video As…` menu item when right-clicking on a video.
+
 #### showSaveLinkAs
 
 Type: `boolean`\
@@ -294,6 +315,9 @@ The following options are ignored when `menu` is used:
 - `showCopyImage`
 - `showCopyImageAddress`
 - `showSaveImageAs`
+- `showCopyVideoAddress`
+- `showSaveVideo`
+- `showSaveVideoAs`
 - `showSaveLinkAs`
 - `showInspectElement`
 - `showServices`
@@ -311,8 +335,11 @@ Default actions:
 - `selectAll`
 - `saveImage`
 - `saveImageAs`
+- `saveVideo`
+- `saveVideoAs`
 - `copyImage`
 - `copyImageAddress`
+- `copyVideoAddress`
 - `copyLink`
 - `saveLinkAs`
 - `inspect`
