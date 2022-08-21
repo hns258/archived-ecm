@@ -36,7 +36,6 @@ contextMenu({
 		}
 	],
 	append: () => {},
-	// addSearchWithOther: {title: 'Bing', url:'https://www.bing.com/search?q=%s&PC=U316&FORM=CHROMN'},
 	addSearchWithOther: {title: 'DuckDuckGo', url: 'https://duckduckgo.com/?q=%s'},
 	showCopyImageAddress: true,
 	showSaveImageAs: true,

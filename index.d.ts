@@ -195,7 +195,7 @@ declare namespace contextMenu {
 		 }
 		 ```
 		*/
-		readonly addSearchWithOther?: {};
+		readonly addSearchWithOther?: {title: string; url: string};
 
 		/**
 		Show the `Select All` menu item when right-clicking in a window.
