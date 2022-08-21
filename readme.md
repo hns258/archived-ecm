@@ -150,7 +150,7 @@ Default: `{}`
 
 Add a `Search with {searchEngine}` menu item when right-clicking text. 
 
-This allows use of a search engine besides Google (e.g., Bing and DuckDuckGo). You will need to provide a `title` and `url` (with query syntax) of the search engine to use. The `{searchEngine}` placeholder will be replaced by `title`. 
+This allows use of a search engine besides Google (e.g., Bing and DuckDuckGo). The `title` and `url` (with query syntax used in Chrome) of the desired search engine need to be set. The `{searchEngine}` placeholder will be replaced by `title`. 
 
 Examples:
 ```js
@@ -305,7 +305,7 @@ The following options are ignored when `menu` is used:
 
 - `showLookUpSelection`
 - `showSearchWithGoogle`
-- `showSearchWithOther`
+- `addSearchWithOther`
 - `showSelectAll`
 - `showCopyImage`
 - `showCopyImageAddress`
