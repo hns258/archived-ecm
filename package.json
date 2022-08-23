@@ -14,8 +14,7 @@
 		"start": "electron fixtures/fixture.js",
 		"test": "xo && ava && tsd",
 		"start-fixture2": "electron fixtures/fixture-menu.js",
-		"start-fixture3": "electron fixtures/fixture-toggle.js",
-	  	"start-fixture4": "electron fixtures/fixture-no-options.js"
+		"start-fixture3": "electron fixtures/fixture-toggle.js"
 	},
 	"files": [
 		"index.js",
