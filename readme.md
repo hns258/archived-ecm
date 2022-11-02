@@ -232,6 +232,13 @@ Default: `false`
 
 Show the `Save Video As…` menu item when right-clicking on a video.
 
+#### showCopyLink
+
+Type: `boolean`\
+Default: `true`
+
+Show the `Copy Link` menu item when right-clicking on a link.
+
 #### showSaveLinkAs
 
 Type: `boolean`\
@@ -319,6 +326,7 @@ The following options are ignored when `menu` is used:
 - `showCopyVideoAddress`
 - `showSaveVideo`
 - `showSaveVideoAs`
+- `showCopyLink`
 - `showSaveLinkAs`
 - `showInspectElement`
 - `showServices`
